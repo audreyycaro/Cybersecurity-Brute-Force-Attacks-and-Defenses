@@ -1,0 +1,52 @@
+# decimal_bank_vault_receiver                 
+
+from microbit import *
+import radio
+import random
+
+radio.on()
+radio.config(channel=7)
+
+pin = '324' 
+fails = 0
+
+while True:
+
+    display.show(Image.SQUARE_SMALL)         
+    
+    message = radio.receive()
+    
+    if message:
+        pin_entered = str(message)
+
+        if pin_entered == pin:
+            radio.send("Access granted.")
+            fails = 0
+            for n in range(4):
+                display.show(Image.YES)
+                sleep(1000)
+                display.clear()
+                sleep(200)
+        else:
+            fails+= 1
+            radio.send("Access denied.")
+            if fails >2:
+              display.scroll("Oops, 3 fails in a row! Try again in an hour.")
+              display.show(Image.NO)
+              sleep(200)
+              display.clear()
+              sleep(200)
+              display.show(Image.NO)
+              sleep(200)
+              display.clear()
+              sleep(200)
+              display.show(Image.NO)
+              sleep(200)
+              display.clear()
+              sleep(200)
+              sleep(3600000)
+              fails = 0
+              
+              
+
+        display.clear()    
