@@ -1,4 +1,4 @@
-# decimal_bank_vault_receiver                 # <- change
+# decimal_bank_vault_receiver                 
 
 from microbit import *
 import radio
@@ -7,11 +7,11 @@ import random
 radio.on()
 radio.config(channel=7)
 
-pin = '324'                                   # <- change
+pin = '324'                                  
 
 while True:
 
-    display.show(Image.SQUARE_SMALL)          # <- change
+    display.show(Image.SQUARE_SMALL)         
     
     message = radio.receive()
     
