@@ -5,7 +5,7 @@ import radio
 
 def scramble(word, encrypt):
     alpha  = "vLR{}:,'01234 56789ms"
-    crypta = "}41svR0 79L,86{5':32m"  
+    crypta = "sm8976 542130',:RLv{}"  
     result = ''
     if encrypt is False:
         temp = alpha
